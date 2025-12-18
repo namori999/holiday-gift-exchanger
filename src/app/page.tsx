@@ -44,42 +44,16 @@ function HomeContent({ initialRoomId, onRoomIdChange }: HomeContentProps) {
   // URLパラメータからルームIDを取得（HomeContentで処理）
   useEffect(() => {
     const roomIdFromUrl = searchParams.get('room');
-    const savedRoomId = localStorage.getItem('roomId');
 
     if (roomIdFromUrl) {
       // URLにroomIdがある場合（参加者として参加）
-      if (savedRoomId && savedRoomId !== roomIdFromUrl) {
-        console.log('🧹 古いルームデータをクリア:', savedRoomId, '->', roomIdFromUrl);
-        localStorage.clear();
-      }
-
       setRoomId(roomIdFromUrl);
       setCurrentScreen('join');
       setMode('participant');
-    } else {
-      // URLにroomIdがない場合（MCまたは復元）
-      const savedUserId = localStorage.getItem('userId');
-      const savedMode = localStorage.getItem('mode') as 'mc' | 'participant' | null;
-
-      if (savedRoomId && savedUserId && savedMode) {
-        setRoomId(savedRoomId);
-        setUserId(savedUserId);
-        setMode(savedMode);
-        setCurrentScreen(savedMode === 'mc' ? 'mcWaiting' : 'participantWaiting');
-      }
     }
+    // URLにroomIdがない場合は常にMC登録画面から始める
   }, [searchParams]);
 
-  // ルームID・ユーザーID・モードをlocalStorageに保存
-  useEffect(() => {
-    if (roomId) {
-      localStorage.setItem('roomId', roomId);
-    }
-    if (userId) {
-      localStorage.setItem('userId', userId);
-    }
-    localStorage.setItem('mode', mode);
-  }, [roomId, userId, mode]);
 
   // 参加者側: イベントステータスに基づく自動画面遷移
   useEffect(() => {
@@ -142,9 +116,6 @@ function HomeContent({ initialRoomId, onRoomIdChange }: HomeContentProps) {
         {currentScreen === 'mc' && (
           <MCRegistrationScreen
             onNext={(newRoomId, newUserId) => {
-              // 古いデータをクリア
-              localStorage.clear();
-              // 新しいデータをセット
               setRoomId(newRoomId);
               setUserId(newUserId);
               setCurrentScreen('mcWaiting');
@@ -163,9 +134,6 @@ function HomeContent({ initialRoomId, onRoomIdChange }: HomeContentProps) {
           <ParticipantJoinScreen
             roomId={roomId}
             onNext={(newUserId) => {
-              // 新規参加時は古いデータをクリア
-              localStorage.removeItem('userId');
-              localStorage.removeItem('mode');
               setUserId(newUserId);
               setMode('participant');
               setCurrentScreen('presentInput');

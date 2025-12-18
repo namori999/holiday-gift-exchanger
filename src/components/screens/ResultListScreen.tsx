@@ -90,8 +90,8 @@ export default function ResultListScreen() {
           >
             {/* プレゼントイラスト */}
             <div style={{
-              width: '100px',
-              height: '100px',
+              width: '60px',
+              height: '60px',
               position: 'relative',
               flexShrink: 0
             }}>

@@ -66,7 +66,7 @@ export default function ResultDetailModal({
         <div
           onClick={(e) => e.stopPropagation()}
           style={{
-            backgroundColor: 'white',
+            backgroundColor: '#f0f0f0',
             borderRadius: '8px',
             width: '100%',
             maxWidth: '500px',
@@ -97,10 +97,12 @@ export default function ResultDetailModal({
 
           {/* プレゼントイラスト */}
           <div style={{
-            width: '100%',
-            aspectRatio: '16/9',
+            width: '200px',
+            height: '200px',
             position: 'relative',
-            marginBottom: '24px'
+            marginBottom: '24px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
           }}>
             <Image
               src={`/images/gift-${(giftImageIndex % 4) + 1}.png`}

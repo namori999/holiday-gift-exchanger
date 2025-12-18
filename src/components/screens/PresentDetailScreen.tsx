@@ -106,12 +106,12 @@ export default function PresentDetailScreen({ isMC = false, onNext, onComplete, 
       <div style={{
         fontSize: '16px',
         fontWeight: 'bold',
-        color: '#ED1713',
+        color: '#fff',
         marginBottom: '30px',
         display: 'flex',
         alignItems: 'center',
         gap: '6px',
-        border: '2px solid #ED1713',
+        border: '2px solid #fff',
         borderRadius: '999px',
         padding: '6px 14px',
         width: 'fit-content'
@@ -123,10 +123,12 @@ export default function PresentDetailScreen({ isMC = false, onNext, onComplete, 
 
       {/* プレゼントイラスト */}
       <div style={{
-        width: '100%',
-        aspectRatio: '16/9',
+        width: '200px',
+        height: '200px',
         position: 'relative',
-        marginBottom: '30px'
+        marginBottom: '30px',
+        marginLeft: 'auto',
+        marginRight: 'auto'
       }}>
         <Image
           src={`/images/gift-${(currentIndex % 4) + 1}.png`}
