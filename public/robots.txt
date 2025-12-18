@@ -1,0 +1,12 @@
+# robots.txt for Holiday Gift Exchanger
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private pages if any
+# Disallow: /admin/
+# Disallow: /api/
+
+# Sitemap
+Sitemap: https://your-domain.com/sitemap.xml
+

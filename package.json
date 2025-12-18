@@ -1,7 +1,27 @@
 {
   "name": "holiday_gift_exchanger",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "ホリデーシーズンのプレゼント交換をもっと楽しく！想いを伝えられる新しいプレゼント交換アプリ",
+  "author": "Holiday Gift Exchanger Team",
+  "license": "MIT",
+  "keywords": [
+    "gift",
+    "exchange",
+    "christmas",
+    "holiday",
+    "party",
+    "event",
+    "present"
+  ],
+  "homepage": "https://github.com/namori999/holiday-gift-exchanger#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/namori999/holiday-gift-exchanger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/namori999/holiday-gift-exchanger/issues"
+  },
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,6 +29,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "firebase": "^12.7.0",
     "next": "16.0.10",
     "react": "19.2.1",
     "react-dom": "19.2.1"

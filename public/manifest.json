@@ -1,0 +1,28 @@
+{
+  "name": "ホリデーギフト交換 | Holiday Gift Exchanger",
+  "short_name": "Gift Exchanger",
+  "description": "ホリデーシーズンのプレゼント交換をもっと楽しく！想いを伝えられる新しいプレゼント交換アプリ。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#C41E3A",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["entertainment", "social", "lifestyle"],
+  "lang": "ja",
+  "dir": "ltr"
+}
+

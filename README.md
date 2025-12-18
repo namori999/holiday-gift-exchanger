@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎁 ホリデーギフト交換 | Holiday Gift Exchanger
 
-## Getting Started
+ホリデーシーズンのプレゼント交換をもっと楽しく、意味のあるものにするWebアプリケーション。
+従来のビンゴやあみだくじの問題点を解決し、プレゼントの想いをしっかり伝えられる体験を提供します。
 
-First, run the development server:
+## ✨ 特徴
+
+- 🎅 **スムーズな進行**: MC主導でイベントをスマートに管理
+- 🎯 **完璧な配分**: 自分のプレゼントが自分に当たらない仕組み
+- 💝 **想いを伝える**: プレゼントの詳細情報を全員で共有
+- 📱 **モバイル対応**: スマホで簡単に参加可能
+- 🔄 **リアルタイム同期**: 全員の画面が自動で更新
+
+## 🚀 クイックスタート
+
+### 開発環境のセットアップ
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いて確認できます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 環境変数の設定
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`.env.local` ファイルをプロジェクトのルートに作成し、以下の環境変数を設定してください：
 
-## Learn More
+```env
+# アプリケーションのベースURL
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+# Firebase設定（Firebase Consoleから取得）
+NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_firebase_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_firebase_app_id
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your_firebase_measurement_id
+NEXT_PUBLIC_FIREBASE_DATABASE_URL=your_firebase_database_url
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📦 デプロイ
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Vercelへのデプロイ
 
-## Deploy on Vercel
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/namori999/holiday-gift-exchanger)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. 上のボタンをクリック、またはVercelダッシュボードから「New Project」を選択
+2. GitHubリポジトリを接続
+3. 環境変数を設定
+4. 「Deploy」をクリック
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 公開前のチェックリスト
+
+- [ ] 環境変数が本番環境用に設定されている
+- [ ] `NEXT_PUBLIC_BASE_URL` が本番ドメインに設定されている
+- [ ] Firebase Realtime Databaseのセキュリティルールが設定されている
+- [ ] Firebase Storageのセキュリティルールが設定されている
+- [ ] OGP画像（`/public/images/logo.png`）が用意されている
+- [ ] ファビコンが設定されている
+- [ ] Twitter カードのメタデータに正しいTwitterハンドルを設定（`src/app/layout.tsx`）
+
+## 🛠 技術スタック
+
+- **フレームワーク**: Next.js 14+ (App Router)
+- **言語**: TypeScript
+- **スタイリング**: CSS / Tailwind CSS
+- **データベース**: Firebase Realtime Database
+- **ホスティング**: Vercel / Netlify
+
+## 📱 使い方
+
+### MCとして主催する場合
+
+1. トップページで「MCのニックネーム」を入力してルームを作成
+2. 表示されるQRコードを参加者にシェア
+3. 全員がプレゼント情報を入力するまで待機
+4. 「プレゼント交換を始める」ボタンをクリック
+5. 各プレゼントの配布時に「次のプレゼント」ボタンで進行
+
+### 参加者として参加する場合
+
+1. MCからシェアされたQRコードをスキャン、またはURLにアクセス
+2. ニックネームを入力して参加
+3. プレゼント情報を入力（タイトル、選んだポイント、おすすめの使い方など）
+4. MCがイベントを開始するまで待機
+5. プレゼント配布を楽しむ！
+
+## 📄 ドキュメント
+
+- [要件定義書](./REQUIREMENTS.md) - 機能の詳細仕様
+- [セットアップガイド](./SETUP.md) - 詳細なセットアップ手順
+
+## 🤝 コントリビューション
+
+プルリクエストを歓迎します！大きな変更の場合は、まずissueを開いて変更内容を議論してください。
+
+## 📝 ライセンス
+
+MIT License
+
+## 🔗 関連リンク
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Firebase Documentation](https://firebase.google.com/docs)
+- [Vercel Deployment](https://vercel.com/docs)
