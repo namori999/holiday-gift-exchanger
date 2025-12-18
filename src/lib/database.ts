@@ -14,6 +14,7 @@ const getRoomPath = (roomId: string) => `rooms/${roomId}`;
  */
 export async function createRoom(mcName: string): Promise<{ roomId: string; userId: string }> {
   const db = getDB();
+  if (!db) throw new Error('Database not initialized');
   const roomsRef = ref(db, 'rooms');
   const newRoomRef = push(roomsRef);
   const roomId = newRoomRef.key!;
@@ -50,6 +51,7 @@ export async function createRoom(mcName: string): Promise<{ roomId: string; user
  */
 export async function addUserToRoom(roomId: string, userName: string): Promise<string> {
   const db = getDB();
+  if (!db) throw new Error('Database not initialized');
   const userId = `user_${Date.now()}`;
 
   const newUser: User = {
@@ -75,6 +77,7 @@ export async function saveGift(
   recommendation?: string
 ): Promise<string> {
   const db = getDB();
+  if (!db) throw new Error('Database not initialized');
   const giftId = `gift_${Date.now()}`;
 
   // recommendationが空の場合はプロパティごと削除
@@ -104,6 +107,7 @@ export async function saveGift(
 export async function updateEventStatus(roomId: string, status: Event['status']) {
   console.log('💾 updateEventStatus 開始:', { roomId, status });
   const db = getDB();
+  if (!db) throw new Error('Database not initialized');
   const path = `${getRoomPath(roomId)}/event`;
   console.log('📍 更新パス:', path);
   await update(ref(db, path), { status });
@@ -116,6 +120,7 @@ export async function updateEventStatus(roomId: string, status: Event['status'])
 export async function updateCurrentExchangeIndex(roomId: string, index: number) {
   console.log('💾 updateCurrentExchangeIndex 開始:', { roomId, index });
   const db = getDB();
+  if (!db) throw new Error('Database not initialized');
   const path = `${getRoomPath(roomId)}/event`;
   console.log('📍 更新パス:', path);
   await update(ref(db, path), { currentExchangeIndex: index });
@@ -127,6 +132,7 @@ export async function updateCurrentExchangeIndex(roomId: string, index: number) 
  */
 export async function saveExchanges(roomId: string, exchanges: Exchange[]) {
   const db = getDB();
+  if (!db) throw new Error('Database not initialized');
   const exchangesData: { [key: string]: any } = {};
 
   exchanges.forEach((exchange) => {
@@ -148,6 +154,7 @@ export async function saveExchanges(roomId: string, exchanges: Exchange[]) {
  */
 export async function getRoomData(roomId: string): Promise<RoomData | null> {
   const db = getDB();
+  if (!db) throw new Error('Database not initialized');
   const snapshot = await get(ref(db, getRoomPath(roomId)));
   return snapshot.exists() ? snapshot.val() : null;
 }
@@ -160,6 +167,7 @@ export function subscribeToRoom(
   callback: (data: RoomData | null) => void
 ): () => void {
   const db = getDB();
+  if (!db) throw new Error('Database not initialized');
   const roomRef = ref(db, getRoomPath(roomId));
 
   onValue(roomRef, (snapshot) => {
