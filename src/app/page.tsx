@@ -549,10 +549,10 @@ export default function Home() {
 
   return (
     <RoomProvider roomId={roomId}>
-      <Suspense fallback={<div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
+      <Suspense fallback={<div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         height: '100vh',
         backgroundColor: '#1a1a1a',
         color: 'white'

@@ -1,6 +1,6 @@
 # 🚀 デプロイガイド
 
-このガイドでは、Holiday Gift ExchangerアプリをVercelにデプロイする手順を説明します。
+このガイドでは、クリプレこうかんや（Holiday Gift Exchanger）アプリをVercelにデプロイする手順を説明します。
 
 ## 📋 事前準備
 

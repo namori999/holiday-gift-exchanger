@@ -10,7 +10,7 @@ const mplus = M_PLUS_1p({
 });
 
 export const metadata: Metadata = {
-  title: "ホリデーギフト交換 | Holiday Gift Exchanger",
+  title: "クリプレこうかんや | Holiday Gift Exchanger",
   description: "ホリデーシーズンのプレゼント交換をもっと楽しく！想いを伝えられる新しいプレゼント交換アプリ。自分のプレゼントが自分に当たらない仕組みで、みんなで楽しいひとときを。",
   keywords: ["プレゼント交換", "ギフト交換", "クリスマス", "ホリデー", "パーティー", "イベント"],
   authors: [{ name: "Holiday Gift Exchanger" }],
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
   openGraph: {
-    title: "ホリデーギフト交換 | Holiday Gift Exchanger",
+    title: "クリプレこうかんや | Holiday Gift Exchanger",
     description: "ホリデーシーズンのプレゼント交換をもっと楽しく！想いを伝えられる新しいプレゼント交換アプリ。",
     url: "/",
     siteName: "Holiday Gift Exchanger",
@@ -40,17 +40,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ホリデーギフト交換 | Holiday Gift Exchanger",
+    title: "クリプレこうかんや | Holiday Gift Exchanger",
     description: "ホリデーシーズンのプレゼント交換をもっと楽しく！想いを伝えられる新しいプレゼント交換アプリ。",
     images: ["/images/logo.png"],
     creator: "@your_twitter_handle", // 実際のTwitterハンドルに変更してください
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
-  themeColor: "#C41E3A",
   robots: {
     index: true,
     follow: true,
@@ -62,6 +56,13 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#C41E3A",
 };
 
 export default function RootLayout({
